@@ -13,6 +13,13 @@ Hardware require:
 * 10k ohm resistor (for the pushbutton)
 * 1 breadboard
 
+## Node.js dependencies
+
+You need to install cylon dependencies:
+
+    
+
+
 
 
 

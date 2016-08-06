@@ -1,6 +1,8 @@
 # To control arduino for computer
 
-    npm install cylon cylon-firmata --save
+Using the tutorial on cylon.js website: https://cylonjs.com/documentation/platforms/arduino/.
+
+    npm install cylon cylon-firmata cylon-gpio cylon-i2c --save
 
 ## Upload the firmware
 
@@ -8,7 +10,7 @@ You need to upload the cylon.js firmware on the arduino. For that you need `gort
 
 **Do not use `npm install -g gort`**.
 
-Go to the page http://gort.io/documentation/getting_started/downloads/ and download your OS version.
+Go to the [official gort page](http://gort.io/documentation/getting_started/downloads/) and download your OS version.
 
 
 ```bashrc
