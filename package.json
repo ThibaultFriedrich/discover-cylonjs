@@ -1,0 +1,23 @@
+{
+  "name": "discover-cylonjs",
+  "version": "0.1.0",
+  "description": "Multiples projects to discover the power (and weakness) of cylon.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThibaultFriedrich/discover-cylonjs.git"
+  },
+  "author": "Thibault Friedrich <tf@elqui.fr>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ThibaultFriedrich/discover-cylonjs/issues"
+  },
+  "homepage": "https://github.com/ThibaultFriedrich/discover-cylonjs#readme",
+  "dependencies": {
+    "cylon": "^1.3.0",
+    "cylon-firmata": "^0.24.0"
+  }
+}
