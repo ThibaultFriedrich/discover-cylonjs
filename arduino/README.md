@@ -16,10 +16,10 @@ Go to the [official gort page](http://gort.io/documentation/getting_started/down
 ```bashrc
 
 $ gort scan serial # scan the serial ports to find where is the arduino.
-1 serial port(s) found.
+    1 serial port(s) found.
 
-1. [/dev/ttyACM0] - [usb-Arduino__www.arduino.cc__0043_85438363938351B0A001-if00]
-    USB device:  Bus 002 Device 010: ID 2341:0043 Arduino SA Uno R3 (CDC ACM)
+    1. [/dev/ttyACM0] - [usb-Arduino__www.arduino.cc__0043_85438363938351B0A001-if00]
+        USB device:  Bus 002 Device 010: ID 2341:0043 Arduino SA Uno R3 (CDC ACM)
 
 $ gort arduino install # install locally arduino firmware
 
