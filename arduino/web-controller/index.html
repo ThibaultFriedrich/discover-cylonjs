@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dashboard</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" >
+        <style>
+            .main {
+                max-width: 900px;
+                margin: auto;
+                padding-top: 100px;
+                text-align: center;
+                -webkit-user-select: none;  /* Chrome all / Safari all */
+                -moz-user-select: none;     /* Firefox all */
+                -ms-user-select: none;      /* IE 10+ */
+                user-select: none;
+            }
+
+            .switch-label {
+                cursor: pointer!important;
+                width: 150px;
+                text-align: left;
+            }
+
+        </style>
+	</head>
+	<body>
+        <div class="main">
+            <div class="ui toggle checkbox">
+                <input type="checkbox" name="switch" id="switch">
+                <label id="switch-label" class="switch-label">Subscribe to weekly newsletter</label>
+            </div>
+
+        </div>
+
+
+
+
+    </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js" ></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    $(function(){
+
+        function updateLabel (checked) {
+            var label = '';
+            if (checked) {
+                label = 'The LED is on';
+            } else {
+                label = 'The LED is off';
+            }
+            $('#switch-label').html(label);
+        }
+
+        updateLabel(false);
+
+        function updateState (lightOn) {
+            updateLabel(lightOn);
+            $('#switch').prop('checked', lightOn);
+        };
+
+        var socket = io.connect(window.location.host);
+
+        socket.on('current-state', function (lightOn) {
+            updateState(lightOn);
+        });
+
+        socket.on('switched', function (lightOn) {
+            updateState(lightOn);
+        });
+
+        $('#switch, #switch-label').click(function () {
+            var isChecked = $('#switch').is(':checked');
+            console.log(isChecked);
+            if (socket) {
+                socket.emit('switch', isChecked);
+            }
+        });
+
+    });
+  </script>
+
+</html>

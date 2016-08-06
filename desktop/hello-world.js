@@ -1,3 +1,7 @@
+/**
+ * Hello world
+ */
+
 var Cylon = require('cylon');
 
 Cylon.robot({
