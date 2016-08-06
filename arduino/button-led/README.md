@@ -1,4 +1,4 @@
-# Simple project to control arduino from computer
+# Control a led with a button
 
 In this project, a led on the arduino will be controlled by a push button.
 
