@@ -4,7 +4,7 @@ In this project, a led on the arduino will be controlled by a push button.
 
 ## Build the circuit
 
-Hardware require:
+Hardware required:
 
 * 1 arduino
 * 1 pushbutton
