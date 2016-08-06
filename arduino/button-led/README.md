@@ -13,17 +13,14 @@ Hardware require:
 * 10k ohm resistor (for the pushbutton)
 * 1 breadboard
 
-## Node.js dependencies
+![Circuit](circuit.png)
 
-You need to install cylon dependencies:
-
-    
-
-
-
-
-
+More details:
 
 * https://www.arduino.cc/en/Tutorial/Blink
 * https://www.arduino.cc/en/tutorial/pushbutton
 * https://www.arduino.cc/en/Tutorial/StateChangeDetection
+
+## Node.js
+
+    node button-led.js
