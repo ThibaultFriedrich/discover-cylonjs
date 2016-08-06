@@ -30,6 +30,7 @@ $ gort arduino upload firmata /dev/ttyACM0 # upload the firmware into the arduin
 ## Projects
 
 * button-led: first example to control a led from a push button.
+* web-controller: second example to add a web interface to interact with the arduino.
 
 ## Hardware
 
