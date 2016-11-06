@@ -1,0 +1,309 @@
+<html lang="en" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <style>
+        md-dialog.dtp{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff;max-height:none}.dtp *:focus{outline:none!important}.dtp table{border-spacing:0;border-collapse:collapse;width:100%}.dtp .table > tbody > tr > td,.dtp .table > tbody > tr > th,.dtp .table > tfoot > tr > td,.dtp .table > tfoot > tr > th,.dtp .table > thead > tr > td,.dtp .table > thead > tr > th{padding:8px;line-height:1.42857143;vertical-align:top;border-top:1px solid #ddd}.dtp,.dtp *{box-sizing:border-box!important}.dtp > .dtp-content{max-width:300px;max-height:500px}.dtp > .dtp-content > .dtp-date-view > header.dtp-header{background:#1a237e;color:#fff;text-align:center;padding:3px}.dtp div.dtp-date,.dtp div.dtp-time{background:#1a237e;text-align:center;color:#fff;padding:10px}.dtp div.dtp-date > div{padding:0;margin:0}.dtp div.dtp-actual-month{font-size:1.5em}.dtp div.dtp-actual-num{font-size:3em;line-height:0.9}.dtp div.dtp-actual-maxtime{font-size:3em;line-height:0.9}.dtp div.dtp-actual-year{font-size:1.5em;color:#DCEDC8}.dtp div.dtp-picker{padding:10px;text-align:center}.dtp div.dtp-picker-month,.dtp div.dtp-actual-time{font-weight:500;text-align:center}.dtp .dtp-close{position:absolute;top:0.25em;right:5px;font-size:16px}.dtp .dtp-close > a{color:#fff;text-decoration:none}.dtp .dtp-close > a > i{font-size:1em}.dtp table.dtp-picker-days{margin:0;min-height:220px}.dtp md-virtual-repeat-container.months{height:260px}.dtp table.dtp-picker-days,.dtp table.dtp-picker-days tr,.dtp table.dtp-picker-days tr > td{border:none}.dtp table.dtp-picker-days tr > td{font-size:11px;text-align:center;padding:0}.dtp table.dtp-picker-days tr > td > span.dtp-select-day{color:#BDBDBD!important}.dtp table.dtp-picker-days tr > td > .dtp-select-day{width:36px;height:36px;display:inline-block}.dtp table.dtp-picker-days tr > td > .dtp-select-day,.dtp .dtp-picker-time > a{color:#212121;text-decoration:none;padding:10px;border-radius:50%!important}.dtp table.dtp-picker-days tr > td > a.selected{background:#1a237e;color:#fff}.dtp table.dtp-picker-days tr > td > a:hover:not(.selected){background:#ddd}.dtp table.dtp-picker-days tr > th{color:#757575;text-align:center;font-weight:700;padding:4px 3px}.dtp .p10 > a{color:#1a237e;text-decoration:none}.dtp .p10{width:10%;display:inline-block}.dtp .p20{width:20%;display:inline-block}.dtp .p60{width:60%;display:inline-block}.dtp .p80{width:80%;display:inline-block}.dtp a.dtp-meridien-am,.dtp a.dtp-meridien-pm{position:relative;top:10px;color:#212121;font-weight:500;padding:7px 5px;border-radius:50%!important;text-decoration:none;background:#eee;font-size:10px}.dtp .dtp-actual-meridien a.selected{background:#1a237e;color:#fff}.dtp .dtp-picker-time > a{display:block;line-height:23px;padding:3px}.dtp .dtp-picker-time{position:absolute;width:30px;height:30px;font-size:1.1em;border-radius:50%;cursor:pointer;text-align:center!important}.dtp .dtp-picker-time > a.dtp-select-hour.selected{background:#1a237e;color:#fff}.dtp .dtp-picker-time > a.dtp-select-hour.disabled,.dtp .dtp-picker-time > a.dtp-select-minute.disabled{color:#757575}.dtp .dtp-picker-time > a.dtp-select-minute.selected{background:#1a237e;color:#fff}.dtp div.dtp-picker-clock{margin:10px 20px 0 20px;padding:10px;border-radius:50%!important;background:#eee}.dtp-clock-center{width:15px;height:15px;background:#757575;border-radius:50%;position:absolute;z-index:50}.dtp .dtp-hand,.dtp .dtp-hour-hand{position:absolute;width:4px;margin-left:-2px;background:#BDBDBD;-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-webkit-transform:rotate(0deg);transform:rotate(0deg);-moz-transform-origin:bottom;-ms-transform-origin:bottom;-webkit-transform-origin:bottom;transform-origin:bottom;z-index:1}.dtp .dtp-minute-hand{width:2px;margin-left:-1px}.dtp .dtp-hand.on{background:#1a237e}.dtp .dtp-buttons{padding:0 10px 10px 10px;text-align:right}.dtp.hidden,.dtp .hidden{display:none}.dtp .invisible{visibility:hidden}.dtp .left{float:left}.dtp .right{float:right}.dtp .clearfix{clear:both}.dtp .center{text-align:center}
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+    <style>
+    body, html {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        background-color: #2f378a;
+        color: white;
+    }
+
+    .hour {
+        font-size: 80px;
+        font-weight: 100;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 80px;
+    }
+
+    .hour-input {
+        display: inline-block;
+        background-color: #2f378a;
+        color: white;
+        font-size: 80px;
+        font-weight: 100;
+        font-family: 'Roboto', sans-serif;
+        border: none;
+        outline: none;
+        width: 100%;
+    }
+
+    md-checkbox ._md-icon {
+        border-color: white;
+    }
+
+    md-checkbox.md-checked ._md-icon {
+        background-color: white;
+    }
+
+    md-checkbox.md-checked ._md-icon:after {
+        border-color: #2f378a;
+    }
+
+    .day {
+        border-radius: 999em;
+
+        height: 35px;
+        width: 35px;
+        padding: 6px ;
+        text-align: center;
+        display: inline-block;
+        /*margin-left: 6px;
+        margin-right: 6px;*/
+        font-size: 1.25em;
+        color: white;
+        text-transform: uppercase;
+        outline: none;
+
+    }
+
+    .day-active {
+        background: white;
+        color: #2f378a;
+    }
+
+    .days {
+        transition: all linear 0.5s;
+        max-height: 51px;
+
+    }
+
+    .days.ng-hide {
+        max-height: 0px;
+    }
+
+    .dtp div.dtp-time {
+        background: #2f378a;
+    }
+
+    .dtp > .dtp-content > .dtp-date-view > header.dtp-header {
+        background: #1a237e;
+    }
+    </style>
+</head>
+<body ng-app="AlarmClockApp" ng-controller="AlarmClockController" ng-cloak layout="column" layout-padding layout-align="center stretch">
+    <div layout="row" layout-align="center center">
+        <h1 class="hour" flex>
+            <input mdc-datetime-picker="" date="false" time="true" type="text" id="time2"
+placeholder="Time" min-date="minDate" format="HH:mm" ng-model="time" class=" md-input hour-input">
+
+            <!-- <input mdc-datetime-picker date="false" time="true" type="text" id="time" short-time="true"
+               placeholder="Time"
+               min-date="minDate"
+               format="hh:mm a"
+               ng-model="time"> -->
+            <!-- 07:30 -->
+        </h1>
+        <md-switch ng-model="active" aria-label="Active"></md-switch>
+    </div>
+    <div layout="row" layout-padding layout-align="start center">
+        <div flex>
+            <md-checkbox ng-model="repeat" aria-label="Checkbox 1">
+                Repeat
+            </md-checkbox>
+        </div>
+    </div>
+    <div layout="row" layout-padding layout-align="space-around center" ng-show="repeat" class="days">
+        <div ng-repeat="day in days" class="day" ng-click="toggleDay(day)" ng-class="{'day-active':day.active}">{{ day.day[0] }}</div>
+<!--
+            <div class="day" ng-click="" ng-class="">M</div>
+            <div class="day">T</div>
+            <div class="day">W</div>
+            <div class="day">T</div>
+            <div class="day">F</div>
+            <div class="day">S</div>
+            <div class="day">S</div>-->
+    </div>
+
+            <!--
+            Your HTML content here
+        -->
+
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+        <script type="text/javascript">
+        (function(moment){"use strict";var moduleName="ngMaterialDatePicker";var VIEW_STATES={DATE:0,HOUR:1,MINUTE:2};var css=function(el,name){if("jQuery"in window){return jQuery(el).css(name)}else{el=angular.element(el);return"getComputedStyle"in window?window.getComputedStyle(el[0])[name]:el.css(name)}};var template='<md-dialog class="dtp" layout="column" style="width: 300px;">'+'    <md-dialog-content class="dtp-content">'+'        <div class="dtp-date-view">'+'            <header class="dtp-header">'+'                <div class="dtp-actual-day" ng-show="picker.dateMode">{{picker.currentDate.format("dddd")}}</div>'+'                <div class="dtp-actual-day" ng-show="picker.timeMode">{{picker.params.shortTime ? picker.currentDate.format("A") : " "}}</div>'+'                <div class="dtp-close text-right">'+'                    <a href="#" mdc-dtp-noclick ng-click="picker.hide()">&times;</a>'+"                </div>"+"            </header>"+'            <div class="dtp-date" ng-show="picker.params.date">'+'                <div layout="column">'+'                    <div class="dtp-actual-month">{{picker.currentDate.format("MMM") | uppercase}}</div>'+"                </div>"+'                <div class="dtp-actual-num">{{picker.currentDate.format("DD")}}</div>'+'                <div layout="row">'+' <div ng-click="picker.incrementYear(-1)" class="dtp-year-btn dtp-year-btn-prev" flex="30"><span ng-if="picker.isPreviousYearVisible()" >&#x25B2;</span></div>'+'                    <div class="dtp-actual-year" flex>{{picker.currentDate.format("YYYY")}}</div>'+' <div ng-click="picker.incrementYear(1)" class="dtp-year-btn dtp-year-btn-next" flex="30"><span ng-if="picker.isNextYearVisible()" >&#x25BC;</span></div>'+"                </div>"+"            </div>"+'            <div class="dtp-time" ng-show="picker.params.time && !picker.params.date">'+'                <div class="dtp-actual-maxtime">{{picker.currentNearest5Minute().format(picker.params.shortTime ? "hh:mm" : "HH:mm")}}</div>'+"            </div>"+'            <div class="dtp-picker">'+'                <mdc-datetime-picker-calendar date="picker.currentDate" picker="picker" class="dtp-picker-calendar" ng-show="picker.currentView === picker.VIEWS.DATE"></mdc-datetime-picker-calendar>'+'                <div class="dtp-picker-datetime" ng-show="picker.currentView !== picker.VIEWS.DATE">'+'                    <div class="dtp-actual-meridien">'+'                        <div class="left p20">'+'                            <a href="#" mdc-dtp-noclick class="dtp-meridien-am" ng-class="{selected: picker.meridien == \'AM\'}" ng-click="picker.selectAM()">{{picker.params.amText}}</a>'+"                        </div>"+'                        <div ng-show="!picker.timeMode" class="dtp-actual-time p60">{{picker.currentNearest5Minute().format(picker.params.shortTime ? "hh:mm" : "HH:mm")}}</div>'+'                        <div class="right p20">'+'                            <a href="#" mdc-dtp-noclick class="dtp-meridien-pm" ng-class="{selected: picker.meridien == \'PM\'}" ng-click="picker.selectPM()">{{picker.params.pmText}}</a>'+"                        </div>"+'                        <div class="clearfix"></div>'+"                    </div>"+'                    <mdc-datetime-picker-clock mode="hours" ng-if="picker.currentView === picker.VIEWS.HOUR"></mdc-datetime-picker-clock>'+'                    <mdc-datetime-picker-clock mode="minutes" ng-if="picker.currentView === picker.VIEWS.MINUTE"></mdc-datetime-picker-clock>'+"                </div>"+"            </div>"+"        </div>"+"    </md-dialog-content>"+'    <md-dialog-actions class="dtp-buttons">'+'            <md-button class="dtp-btn-cancel md-button" ng-click="picker.cancel()"> {{picker.params.cancelText}}</md-button>'+'            <md-button class="dtp-btn-ok md-button" ng-click="picker.ok()"> {{picker.params.okText}}</md-button>'+"      </md-dialog-actions>"+"</md-dialog>";angular.module(moduleName,["ngMaterial"]).provider("mdcDatetimePickerDefaultLocale",function(){this.locale="en";this.$get=function(){return this.locale};this.setDefaultLocale=function(localeString){this.locale=localeString}}).directive("mdcDatetimePicker",["$mdDialog",function($mdDialog){return{restrict:"A",require:"ngModel",scope:{currentDate:"=ngModel",time:"=",date:"=",minDate:"=",maxDate:"=",shortTime:"=",format:"@",cancelText:"@",okText:"@",lang:"@",amText:"@",pmText:"@"},link:function(scope,element,attrs,ngModel){var isOn=false;if(!scope.format){if(scope.date&&scope.time){scope.format="YYYY-MM-DD HH:mm:ss"}else if(scope.date){scope.format="YYYY-MM-DD"}else{scope.format="HH:mm"}}if(angular.isString(scope.currentDate)&&scope.currentDate!==""){scope.currentDate=moment(scope.currentDate,scope.format)}if(ngModel){ngModel.$formatters.push(function(value){if(typeof value==="undefined"){return}var m=moment(value);return m.isValid()?m.format(scope.format):""})}element.attr("readonly","");element.on("focus",function(e){e.preventDefault();element.blur();if(isOn){return}isOn=true;var options={};for(var i in attrs){if(scope.hasOwnProperty(i)&&!angular.isUndefined(scope[i])){options[i]=scope[i]}}options.currentDate=scope.currentDate;var locals={options:options};$mdDialog.show({template:template,controller:PluginController,controllerAs:"picker",locals:locals,openFrom:element,parent:angular.element(document.body),bindToController:true,disableParentScroll:false,skipHide:true}).then(function(v){scope.currentDate=v?v._d:v;isOn=false},function(){isOn=false})})}}}]);var PluginController=function($scope,$mdDialog,mdcDatetimePickerDefaultLocale){this.currentView=VIEW_STATES.DATE;this._dialog=$mdDialog;this.minDate;this.maxDate;this._attachedEvents=[];this.VIEWS=VIEW_STATES;this.params={date:true,time:true,format:"YYYY-MM-DD",minDate:null,maxDate:null,currentDate:null,lang:mdcDatetimePickerDefaultLocale,weekStart:0,shortTime:false,cancelText:"Cancel",okText:"OK",amText:"AM",pmText:"PM"};this.meridien="AM";this.params=angular.extend(this.params,this.options);this.init()};PluginController.$inject=["$scope","$mdDialog","mdcDatetimePickerDefaultLocale"];PluginController.prototype={init:function(){this.timeMode=this.params.time&&!this.params.date;this.dateMode=this.params.date;this.initDates();this.start()},currentNearest5Minute:function(){var date=this.currentDate||moment();var minutes=5*Math.round(date.minute()/5);if(minutes>=60){minutes=55}return moment(date).minutes(minutes)},initDates:function(){var that=this;var _dateParam=function(input,fallback){var ret=null;if(angular.isDefined(input)&&input!==null&&input!==""){if(angular.isString(input)){if(typeof that.params.format!=="undefined"&&that.params.format!==null){ret=moment(input,that.params.format).locale(that.params.lang)}else{ret=moment(input).locale(that.params.lang)}}else{if(angular.isDate(input)){var x=input.getTime();ret=moment(x,"x").locale(that.params.lang)}else if(input._isAMomentObject){ret=input}}}else{ret=fallback}return ret};this.currentDate=_dateParam(this.params.currentDate,moment());this.minDate=_dateParam(this.params.minDate);this.maxDate=_dateParam(this.params.maxDate);this.selectDate(this.currentDate)},initDate:function(d){this.currentView=VIEW_STATES.DATE},initHours:function(){this.currentView=VIEW_STATES.HOUR},initMinutes:function(){this.currentView=VIEW_STATES.MINUTE},isAfterMinDate:function(date,checkHour,checkMinute){var _return=true;if(typeof this.minDate!=="undefined"&&this.minDate!==null){var _minDate=moment(this.minDate);var _date=moment(date);if(!checkHour&&!checkMinute){_minDate.hour(0);_minDate.minute(0);_date.hour(0);_date.minute(0)}_minDate.second(0);_date.second(0);_minDate.millisecond(0);_date.millisecond(0);if(!checkMinute){_date.minute(0);_minDate.minute(0);_return=parseInt(_date.format("X"))>=parseInt(_minDate.format("X"))}else{_return=parseInt(_date.format("X"))>=parseInt(_minDate.format("X"))}}return _return},isBeforeMaxDate:function(date,checkTime,checkMinute){var _return=true;if(typeof this.maxDate!=="undefined"&&this.maxDate!==null){var _maxDate=moment(this.maxDate);var _date=moment(date);if(!checkTime&&!checkMinute){_maxDate.hour(0);_maxDate.minute(0);_date.hour(0);_date.minute(0)}_maxDate.second(0);_date.second(0);_maxDate.millisecond(0);_date.millisecond(0);if(!checkMinute){_date.minute(0);_maxDate.minute(0);_return=parseInt(_date.format("X"))<=parseInt(_maxDate.format("X"))}else{_return=parseInt(_date.format("X"))<=parseInt(_maxDate.format("X"))}}return _return},selectDate:function(date){if(date){this.currentDate=moment(date);if(!this.isAfterMinDate(this.currentDate)){this.currentDate=moment(this.minDate)}if(!this.isBeforeMaxDate(this.currentDate)){this.currentDate=moment(this.maxDate)}this.currentDate.locale(this.params.lang);this.calendarStart=moment(this.currentDate);this.meridien=this.currentDate.hour()>=12?"PM":"AM"}},setName:function(){var text="";var possible="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(var i=0;i<5;i++){text+=possible.charAt(Math.floor(Math.random()*possible.length))}return text},isPM:function(){return this.meridien==="PM"},incrementYear:function(amount){if(amount===1&&this.isNextYearVisible()){this.selectDate(this.currentDate.add(amount,"year"))}if(amount===-1&&this.isPreviousYearVisible()){this.selectDate(this.currentDate.add(amount,"year"))}},isPreviousMonthVisible:function(){return this.calendarStart&&this.isAfterMinDate(moment(this.calendarStart).startOf("month"),false,false)},isNextMonthVisible:function(){return this.calendarStart&&this.isBeforeMaxDate(moment(this.calendarStart).endOf("month"),false,false)},isPreviousYearVisible:function(){return this.calendarStart&&this.isAfterMinDate(moment(this.calendarStart).startOf("year"),false,false)},isNextYearVisible:function(){return this.calendarStart&&this.isBeforeMaxDate(moment(this.calendarStart).endOf("year"),false,false)},isHourAvailable:function(hour){var _date=moment(this.currentDate);_date.hour(this.convertHours(hour)).minute(0).second(0);return this.isAfterMinDate(_date,true,false)&&this.isBeforeMaxDate(_date,true,false)},isMinuteAvailable:function(minute){var _date=moment(this.currentDate);_date.minute(minute).second(0);return this.isAfterMinDate(_date,true,true)&&this.isBeforeMaxDate(_date,true,true)},start:function(){this.currentView=VIEW_STATES.DATE;if(this.params.date){this.initDate()}else{if(this.params.time){this.initHours()}}},ok:function(){switch(this.currentView){case VIEW_STATES.DATE:if(this.params.time===true){this.initHours()}else{this.hide(true)}break;case VIEW_STATES.HOUR:this.initMinutes();break;case VIEW_STATES.MINUTE:this.hide(true);break}},cancel:function(){if(this.params.time){switch(this.currentView){case VIEW_STATES.DATE:this.hide();break;case VIEW_STATES.HOUR:if(this.params.date){this.initDate()}else{this.hide()}break;case VIEW_STATES.MINUTE:this.initHours();break}}else{this.hide()}},selectMonthBefore:function(){this.calendarStart.subtract(1,"months")},selectMonthAfter:function(){this.calendarStart.add(1,"months")},selectYearBefore:function(){this.calendarStart.subtract(1,"years")},selectYearAfter:function(){this.calendarStart.add(1,"years")},selectAM:function(){if(this.isHourAvailable(0)||this.isHourAvailable(12)){if(this.currentDate.hour()>=12){this.selectDate(this.currentDate.subtract(12,"hours"))}if(!this.isHourAvailable(this.currentDate.hour())){this.selectDate(this.currentDate.hour(this.minDate.hour()))}if(!this.isMinuteAvailable(this.currentDate.minute())){this.selectDate(this.currentDate.minute(this.minDate.minute()))}}},selectPM:function(){if(this.isHourAvailable(13)||this.isHourAvailable(24)){if(this.currentDate.hour()<12){this.selectDate(this.currentDate.add(12,"hours"))}if(!this.isHourAvailable(this.currentDate.hour())){this.selectDate(this.currentDate.hour(this.maxDate.hour()))}if(!this.isMinuteAvailable(this.currentDate.minute())){this.selectDate(this.currentDate.minute(this.maxDate.minute()))}}},convertHours:function(h){var _return=h;if(h<12&&this.isPM())_return+=12;return _return},hide:function(okBtn){if(okBtn){this._dialog.hide(this.currentDate)}else{this._dialog.cancel()}}};angular.module(moduleName).directive("mdcDatetimePickerCalendar",[function(){var YEAR_MIN=1900,YEAR_MAX=2100,MONTHS_IN_ALL=(YEAR_MAX-YEAR_MIN+1)*12,ITEM_HEIGHT=240,MONTHS=[];for(var i=0;i<MONTHS_IN_ALL;i++){MONTHS.push(i)}var currentMonthIndex=function(date){var year=date.year();var month=date.month();return(year-YEAR_MIN)*12+month-1};return{restrict:"E",scope:{picker:"=",date:"="},bindToController:true,controllerAs:"cal",controller:["$scope",function($scope){var calendar=this,picker=this.picker,days=[];for(var i=picker.params.weekStart;days.length<7;i++){if(i>6){i=0}days.push(i.toString())}calendar.week=days;if(!picker.maxDate&&!picker.minDate){calendar.months=MONTHS}else{var low=picker.minDate?currentMonthIndex(picker.minDate):0;var high=picker.maxDate?currentMonthIndex(picker.maxDate)+1:MONTHS_IN_ALL;calendar.months=MONTHS.slice(low,high)}calendar.getItemAtIndex=function(index){var month=(index+1)%12||12;var year=YEAR_MIN+Math.floor(index/12);var monthObj=moment(picker.currentDate).year(year).month(month);return generateMonthCalendar(monthObj)};calendar.topIndex=currentMonthIndex(picker.currentDate)-calendar.months[0];$scope.$watch(function(){return picker.currentDate?picker.currentDate.format("YYYY-MM"):""},function(val2,val1){if(val2!=val1){var nDate=moment(val2,"YYYY-MM");var index=currentMonthIndex(nDate)-calendar.months[0];if(calendar.topIndex!=index){calendar.topIndex=index}}});var generateMonthCalendar=function(date){var month={};if(date!==null){month.name=date.format("MMMM YYYY");var startOfMonth=moment(date).locale(picker.params.lang).startOf("month").hour(date.hour()).minute(date.minute());var iNumDay=startOfMonth.format("d");month.days=[];for(var i=startOfMonth.date();i<=startOfMonth.daysInMonth();i++){if(i===startOfMonth.date()){var iWeek=calendar.week.indexOf(iNumDay.toString());if(iWeek>0){for(var x=0;x<iWeek;x++){month.days.push(0)}}}month.days.push(moment(startOfMonth).locale(picker.params.lang).date(i))}var daysInAWeek=7,daysTmp=[],slices=Math.ceil(month.days.length/daysInAWeek);for(var j=0;j<slices;j++){daysTmp.push(month.days.slice(j*daysInAWeek,(j+1)*daysInAWeek))}month.days=daysTmp;return month}};calendar.toDay=function(i){return moment(parseInt(i),"d").locale(picker.params.lang).format("dd").substring(0,1)};calendar.isInRange=function(date){return picker.isAfterMinDate(moment(date),false,false)&&picker.isBeforeMaxDate(moment(date),false,false)};calendar.selectDate=function(date){if(date){if(calendar.isSelectedDay(date)){return picker.ok()}picker.selectDate(moment(date).hour(calendar.date.hour()).minute(calendar.date.minute()))}};calendar.isSelectedDay=function(m){return m&&calendar.date.date()===m.date()&&calendar.date.month()===m.month()&&calendar.date.year()===m.year()}}],template:'<md-virtual-repeat-container md-top-index="cal.topIndex" class="months">'+'<div md-virtual-repeat="idx in cal.months" md-start-index="cal.topIndex" md-item-size="'+ITEM_HEIGHT+'">'+'     <div mdc-datetime-picker-calendar-month idx="idx"></div>'+"</div>"+"</md-virtual-repeat-container>"}}]).directive("mdcDatetimePickerCalendarMonth",["$compile",function($compile){var buildCalendarContent=function(element,scope){var tbody=angular.element(element[0].querySelector("tbody"));var calendar=scope.cal,month=scope.month;tbody.html("");month.days.forEach(function(weekDays,i){var tr=angular.element("<tr></tr>");weekDays.forEach(function(weekDay,j){var td=angular.element("<td> </td>");if(weekDay){var aOrSpan;if(calendar.isInRange(weekDay)){var scopeRef='month["days"]['+i+"]["+j+"]";aOrSpan=angular.element("<a href='#' mdc-dtp-noclick></a>").attr("ng-class","{selected: cal.isSelectedDay("+scopeRef+")}").attr("ng-click","cal.selectDate("+scopeRef+")")}else{aOrSpan=angular.element("<span></span>")}aOrSpan.addClass("dtp-select-day").html(weekDay.format("D"));td.append(aOrSpan)}tr.append(td)});tbody.append(tr)});$compile(tbody)(scope)};return{scope:{idx:"="},require:"^mdcDatetimePickerCalendar",restrict:"AE",template:'<div class="dtp-picker-month">{{month.name}}</div>'+'<table class="table dtp-picker-days">'+"    <thead>"+"    <tr>"+'        <th ng-repeat="day in cal.week">{{cal.toDay(day)}}</th>'+"    </tr>"+"    </thead>"+"    <tbody>"+"    </tbody>"+"</table>",link:function(scope,element,attrs,calendar){scope.cal=calendar;scope.month=calendar.getItemAtIndex(parseInt(scope.idx));buildCalendarContent(element,scope);scope.$watch(function(){return scope.idx},function(idx,oldIdx){if(idx!=oldIdx){scope.month=calendar.getItemAtIndex(parseInt(scope.idx));buildCalendarContent(element,scope)}})}}}]);angular.module(moduleName).directive("mdcDtpNoclick",function(){return{link:function(scope,el){el.on("click",function(e){e.preventDefault()})}}});angular.module(moduleName).directive("mdcDatetimePickerClock",[function(){var template='<div class="dtp-picker-clock"><span ng-if="!points || points.length < 1">&nbsp;</span>'+'<div ng-repeat="point in points" class="dtp-picker-time" ng-style="point.style">'+'   <a href="#" mdc-dtp-noclick ng-class="{selected: point.value===currentValue}" class="dtp-select-hour" ng-click="setTime(point.value)" ng-if="pointAvailable(point)">{{point.display}}</a>'+'   <a href="#" mdc-dtp-noclick class="disabled dtp-select-hour" ng-if="!pointAvailable(point)">{{point.display}}</a>'+"</div>"+'<div class="dtp-hand dtp-hour-hand"></div>'+'<div class="dtp-hand dtp-minute-hand"></div>'+'<div class="dtp-clock-center"></div>'+"</div>";return{restrict:"E",template:template,link:function(scope,element,attrs){var minuteMode=attrs.mode==="minutes";var picker=scope.picker;var componentRoot=document.querySelector("md-dialog.dtp");var exec=function(){var clock=angular.element(element[0].querySelector(".dtp-picker-clock")),pickerEl=angular.element(componentRoot.querySelector(".dtp-picker"));var w=componentRoot.querySelector(".dtp-content").offsetWidth;var pl=parseInt(css(pickerEl,"paddingLeft").replace("px",""))||0;var pr=parseInt(css(pickerEl,"paddingRight").replace("px",""))||0;var ml=parseInt(css(clock,"marginLeft").replace("px",""))||0;var mr=parseInt(css(clock,"marginRight").replace("px",""))||0;var clockWidth=w-(ml+mr+pl+pr);clock.css("width",clockWidth+"px");var pL=parseInt(css(pickerEl,"paddingLeft").replace("px",""))||0;var pT=parseInt(css(pickerEl,"paddingTop").replace("px",""))||0;var mL=parseInt(css(clock,"marginLeft").replace("px",""))||0;var mT=parseInt(css(clock,"marginTop").replace("px",""))||0;var r=clockWidth/2;var j=r/1.2;var points=[];for(var h=0;h<12;++h){var x=j*Math.sin(Math.PI*2*(h/12));var y=j*Math.cos(Math.PI*2*(h/12));var left=r+x+pL/2-(pL+mL);var top=r-y-mT/2-(pT+mT);var hour={value:minuteMode?h*5:h,style:{"margin-left":left+"px","margin-top":top+"px"}};if(minuteMode){hour.display=hour.value<10?"0"+hour.value:hour.value}else{if(picker.params.shortTime){hour.display=h===0?12:h}else{hour.display=picker.isPM()?h+12:h}}points.push(hour)}scope.points=points;setCurrentValue();clock.css("height",clockWidth+"px");var clockCenter=element[0].querySelector(".dtp-clock-center");var centerWidth=clockCenter.offsetWidth/2||7.5,centerHeight=clockCenter.offsetHeight/2||7.5;var _hL=r/1.8;var _mL=r/1.5;angular.element(element[0].querySelector(".dtp-hour-hand")).css({left:r+mL*1.5+"px",height:_hL+"px",marginTop:r-_hL-pL+"px"}).addClass(!minuteMode?"on":"");angular.element(element[0].querySelector(".dtp-minute-hand")).css({left:r+mL*1.5+"px",height:_mL+"px",marginTop:r-_mL-pL+"px"}).addClass(minuteMode?"on":"");angular.element(clockCenter).css({left:r+pL+mL-centerWidth+"px",marginTop:r-mL/2-centerHeight+"px"});animateHands()};var animateHands=function(){var _date=picker.currentNearest5Minute();var h=_date.hour();var m=_date.minute();rotateElement(angular.element(element[0].querySelector(".dtp-hour-hand")),360/12*h);var mdg=360/60*(5*Math.round(m/5));rotateElement(angular.element(element[0].querySelector(".dtp-minute-hand")),mdg)};var rotateElement=function(el,deg){angular.element(el).css({WebkitTransform:"rotate("+deg+"deg)","-moz-transform":"rotate("+deg+"deg)","-ms-transform":"rotate("+deg+"deg)",transform:"rotate("+deg+"deg)"})};var setCurrentValue=function(){var date=picker.currentNearest5Minute();scope.currentValue=minuteMode?date.minute():date.hour()%12};scope.$watch(function(){var tmp=picker.currentNearest5Minute();return tmp?tmp.format("HH:mm"):""},function(newVal){setCurrentValue();animateHands()});var setDisplayPoints=function(isPM,points){for(var i=0;i<points.length;i++){points[i].display=i;if(isPM){points[i].display+=12}}return points};if(!picker.params.shortTime){scope.$watch("picker.meridien",function(){if(!minuteMode){if(scope.points){var points=setDisplayPoints(picker.isPM(),angular.copy(scope.points));scope.points=points}}})}scope.setTime=function(val){if(val===scope.currentValue){picker.ok()}if(!minuteMode){picker.currentDate.hour(picker.isPM()?val+12:val)}else{picker.currentDate.minute(val)}picker.currentDate.second(0)};scope.pointAvailable=function(point){return minuteMode?picker.isMinuteAvailable(point.value):picker.isHourAvailable(point.value)};var unWatcher=scope.$watch(function(){return element[0].querySelectorAll("div").length},function(){exec();unWatcher()})}}}])})(moment);
+//# sourceMappingURL=angular-material-datetimepicker.min.map
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- Your application bootstrap  -->
+        <script type="text/javascript">
+        /**
+        * You must include the dependency on 'ngMaterial'
+        */
+        var app = angular.module('AlarmClockApp', ['ngMaterial', 'ngMaterialDatePicker']);
+        app.config(function($mdThemingProvider) {
+            $mdThemingProvider
+            .theme('default')
+            //.primaryPalette('amazingPaletteName')
+            .dark();
+        });
+
+        app.factory('socket', function ($rootScope) {
+            var socket = io.connect(window.location.host);
+            return {
+                on: function (eventName, callback) {
+                    socket.on(eventName, function () {
+                        var args = arguments;
+                        $rootScope.$apply(function () {
+                            callback.apply(socket, args);
+                        });
+                    });
+                },
+                emit: function (eventName, data, callback) {
+                    socket.emit(eventName, data, function () {
+                        var args = arguments;
+                        $rootScope.$apply(function () {
+                            if (callback) {
+                                callback.apply(socket, args);
+                            }
+                        });
+                    })
+                }
+            };
+        });
+
+        app.controller('AlarmClockController', function($scope, socket) {
+            $scope.repeat = true;
+            $scope.active = true;
+            $scope.time = '';
+            $scope.double = function(value) { return value * 2; };
+
+            $scope.toggleDay = function (day) {
+                day.active = !day.active;
+                socket.emit('day-changed', day);
+            };
+
+            $scope.days = [];
+
+            socket.on('current-state', function (state) {
+                $scope.doNotTakeCareOfNextRepeatChanged = true;
+                $scope.doNotTakeCareOfNextTimeChanged = true;
+                $scope.doNotTakeCareOfNextActiveChanged = true;
+                $scope.days = state.days;
+                $scope.active = state.active;
+                $scope.repeat = state.repeat;
+                $scope.time = moment(state.time, 'HH:mm');
+
+            });
+
+            $scope.doNotTakeCareOfNextActiveChanged = false;
+
+            socket.on('active-changed', function (active) {
+                if ($scope.active != active) {
+                    $scope.doNotTakeCareOfNextActiveChanged = true;
+                    $scope.active = active;
+                }
+            });
+
+            $scope.doNotTakeCareOfNextRepeatChanged = false;
+            socket.on('repeat-changed', function (repeat) {
+                if ($scope.repeat != repeat) {
+                    $scope.doNotTakeCareOfNextRepeatChanged = true;
+                    $scope.repeat = repeat;
+                }
+            });
+
+            socket.on('day-changed', function (changedDay) {
+                $scope.days.forEach(function (day) {
+                    if (day.day == changedDay.day) {
+                        day.active = changedDay.active;
+                    }
+                });
+            });
+
+            $scope.doNotTakeCareOfNextTimeChanged = false;
+            socket.on('time-changed', function (time) {
+                //if ($scope.time != time) {
+                $scope.doNotTakeCareOfNextTimeChanged = true;
+                $scope.time = moment(time, 'HH:mm');
+                //}
+            });
+
+            $scope.$watch('active', function () {
+                if (!$scope.doNotTakeCareOfNextActiveChanged) {
+                    socket.emit('active-changed', $scope.active);
+                }
+                $scope.doNotTakeCareOfNextActiveChanged = false;
+            });
+
+            $scope.$watch('repeat', function () {
+                if (!$scope.doNotTakeCareOfNextRepeatChanged) {
+                    socket.emit('repeat-changed', $scope.repeat);
+                }
+                $scope.doNotTakeCareOfNextRepeatChanged = false;
+            });
+
+            $scope.$watch('time', function () {
+                if (!$scope.doNotTakeCareOfNextTimeChanged) {
+                    console.log()
+                    socket.emit('time-changed', $scope.time.format('HH:mm'));
+                }
+                $scope.doNotTakeCareOfNextTimeChanged = false;
+            });
+            /*
+            $scope.$watch('days', function () {
+                socket.emit('days-changed', $scope.days);
+            }, true);
+*/
+/*
+            [
+                {
+                    day:'monday',
+                    active: true
+                },
+                {
+                    day: 'thurday',
+                    active: true
+                },
+                {
+                    day: 'wednesday',
+                    active: true
+                },
+                {
+                    day: 'thuesday',
+                    active: true
+                },
+                {
+                    day: 'friday',
+                    active: true
+                },
+                {
+                    day: 'saturday',
+                    active: true
+                },
+                {
+                    day: 'sunday',
+                    active: true
+                }
+            ];
+*/
+            //console.log($scope.days[0].day[0]);
+        });
+        </script>
+
+    </body>
+    </html>
+
+    <!--
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
